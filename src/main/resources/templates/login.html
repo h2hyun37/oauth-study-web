@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>OAuth Sample</title>
+</head>
+
+<body>
+
+
+<form id="loginForm" action="loginProcess" method="post">
+
+Enter ID or eMail : <input type="text" name="email" />
+<select name="provider">
+<option value="google">Google</option>
+<option value="fb">Facebook(not yet)</option>
+<option value="mySvc">Our Service (not yet)</option>
+</select>
+
+<!-- <p th:text="'redirectUri = ' + ${redirectUri} " /> -->
+<!--  <a href="main.html" th:href="@{/main}"> test link</a> -->
+
+<!--  <input type="hidden" name="redirectUri" th:attr="value=${redirectUri}" /> -->
+
+<p></p>
+<input type="submit" name="submit" />
+</form>
+
+
+</body>
+</html>
+
