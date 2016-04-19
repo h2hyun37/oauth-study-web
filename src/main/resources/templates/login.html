@@ -5,17 +5,35 @@
 	<title>OAuth Sample</title>
 </head>
 
+<script type="text/javascript">
+function showEmailInput(selectObj, emailInputObj) {
+
+	if (selectObj.id == "provider") {
+		alert("function showEmailInput() : " + selectObj.id + "," + emailInputObj.id + "," + selectObj.id.value);
+	}
+
+
+
+}
+
+
+
+</script>
+
 <body>
 
 
 <form id="loginForm" action="loginProcess" method="post">
 
-Enter ID or eMail : <input type="text" name="email" />
-<select name="provider">
+select OAuth Provider : <select name="provider" id="provider" onchange="javascript:showEmailInput(this,emailInput)">
 <option value="google">Google</option>
 <option value="fb">Facebook(not yet)</option>
 <option value="mySvc">Our Service (not yet)</option>
 </select>
+
+<div id="emailInput" style="display: table;">
+Enter ID or eMail : <input type="text" name="email" />
+</div>
 
 <!-- <p th:text="'redirectUri = ' + ${redirectUri} " /> -->
 <!--  <a href="main.html" th:href="@{/main}"> test link</a> -->
@@ -23,7 +41,7 @@ Enter ID or eMail : <input type="text" name="email" />
 <!--  <input type="hidden" name="redirectUri" th:attr="value=${redirectUri}" /> -->
 
 <p></p>
-<input type="submit" name="submit" />
+<input type="submit" name="submit" value="OK" />
 </form>
 
 
