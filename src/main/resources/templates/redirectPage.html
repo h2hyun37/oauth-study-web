@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Redirect to ${uri}...</title>
+</head>
+
+
+<script th:inline="javascript">
+/*<![CDATA[*/
+
+    // alert(/*[[${uri}]]*/);
+
+	// setTimeout(function() {"location.href=/*[[${uri}]]*/";}, timeOut); // 뭔가 안됨 ㅡㅡ
+
+	var timeOut = /*[[${timeOut}]]*/ 3000;
+	location.href = /*[[${uri}]]*/;
+
+
+	/*]]>*/
+
+
+</script>
+
+
+<body>
+<p th:text="#{application2.server.port}">serverPort</p>
+<span th:text="${uri}"></span> 로 <span th:text="${timeOut} / 1000"></span> 초후에 이동합니다.<br />
+이동하지 않으면 <a th:href='@{${uri}}'>여기</a>를 클릭하세요 ...
+</body>
+</html>
+
