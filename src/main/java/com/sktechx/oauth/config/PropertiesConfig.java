@@ -1,10 +1,9 @@
 package com.sktechx.oauth.config;
 
-import lombok.Data;
-
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
+
+import lombok.Data;
 
 /*
  * TODO : @PropertySource 와 @ConfigurationProperties 의 정확한 차이를 확인해봐야 겠음

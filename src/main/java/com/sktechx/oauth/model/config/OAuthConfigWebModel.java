@@ -1,8 +1,8 @@
 package com.sktechx.oauth.model.config;
 
-import lombok.Data;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import lombok.Data;
 
 @Data
 public class OAuthConfigWebModel {
