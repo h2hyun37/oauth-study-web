@@ -1,15 +1,79 @@
 package com.sktechx.oauth.web.controller;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping(value = "/coupang")
 public class CoupangController {
+
+	public class ListElement<T> {
+
+		T data;
+		ListElement<T> next = null;
+
+		public ListElement(T value) {
+			data = value;
+		}
+
+		public ListElement<T> next() {
+			return next;
+		}
+
+		public T value() {
+			return data;
+		}
+
+		public void setNext(ListElement<T> elem) {
+			next = elem;
+		}
+
+		public void setValue(T value) {
+			data = value;
+		}
+
+	}
+
+	@RequestMapping("/ge")
+	@ResponseBody
+	public String genericTest() {
+
+		String strings = Arrays.toString(new int[] { 2, 3, 4, 5, 6 });
+		System.out.println(strings);
+
+		ListElement<String> header = null;
+		ListElement<String> current = null;
+
+		List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6);
+		for (int i : list) {
+
+			if (header == null) {
+				header = new ListElement<>(Integer.toString(i));
+				current = header;
+			} else {
+				current.setNext(new ListElement<>(Integer.toString(i)));
+				current = current.next();
+			}
+		}
+
+		StringBuilder sb = new StringBuilder();
+
+		current = header;
+		while (current != null) {
+			sb.append(current.value() + "<br />\n");
+			current = current.next();
+		}
+
+		return sb.toString();
+
+
+	}
 
     public static List<Integer> convertStringToInteger(String[] subCipherText) {
 	List<Integer> result = new ArrayList<Integer>();
