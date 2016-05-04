@@ -5,18 +5,36 @@ import static org.junit.Assert.assertThat;
 
 import java.io.IOException;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class CalculatorTest {
 
+	CalculatorTemplate calc;
+	BufferedReaderCallback callback;
+	String filePath;
+
+	@Before
+	public void setUp() {
+		calc = new CalculatorTemplate();
+		filePath = calc.getFilePath();
+	}
+
 	@Test
-	public void calcSumTest() throws NumberFormatException, IOException {
-		CalculatorTemplate calc = new CalculatorTemplate();
+	public void sumCallbackTest() throws NumberFormatException, IOException {
 
-		BufferedReaderCallback callback = new SumCallback();
-		int sum = calc.calcSum(calc.getFilePath(), callback);
-
+		callback = new SumCallback();
+		int sum = calc.calcSum(filePath, callback);
 		assertThat(sum, is(10));
 	}
+
+	@Test
+	public void multiplyCallbackTest() throws NumberFormatException, IOException {
+
+		callback = new MultiplyCallback();
+		int multiply = calc.calcSum(filePath, callback);
+		assertThat(multiply, is(24));
+	}
+
 
 }
