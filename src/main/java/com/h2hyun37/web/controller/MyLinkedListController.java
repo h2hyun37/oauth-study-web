@@ -2,6 +2,8 @@ package com.h2hyun37.web.controller;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -60,5 +62,47 @@ public class MyLinkedListController {
 		return sb.toString();
 	}
 
+
+	@RequestMapping(value = { "/get", "/get/", "/get/{pathValue}" })
+	@ResponseBody
+	public String get(@PathVariable Map<String, String> pathVariableMap, HttpServletRequest request) {
+
+		int index = -1;
+		String indexString = null;
+
+		if (pathVariableMap.containsKey("pathValue")) {
+			indexString = pathVariableMap.get("pathValue");
+		} else {
+			// value = request.getParameter("value");
+
+			String params = request.getQueryString();
+			System.out.println(params);
+
+			for (String param : params.split("&")) {
+				String paramKey = param.split("=")[0];
+				String paramValue = param.split("=")[1];
+
+				if ("value".equals(paramKey)) {
+					indexString = paramValue;
+					break;
+				}
+			}
+		}
+
+		index = Integer.parseInt(indexString);
+		String value = mylist.get(index);
+
+		StringBuilder sb = new StringBuilder();
+
+		if (value == null) {
+			sb.append("index : " + indexString + " => value : " + value + "<br />");
+		} else {
+			sb.append("index : " + indexString + " => no such element..<br />");
+		}
+
+		return sb.toString();
+
+
+	}
 
 }
