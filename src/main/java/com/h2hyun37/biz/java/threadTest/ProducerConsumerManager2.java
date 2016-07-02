@@ -4,7 +4,7 @@ public class ProducerConsumerManager2 {
 
 	public static void main(String[] args) {
 
-		ResourceQueue2<Integer> queue = new ResourceQueue2<>();
+	ResourceQueue2<Character> queue = new ResourceQueue2<>();
 
 		Producer2 producer = new Producer2(queue);
 		Consumer2 consumer1 = new Consumer2(queue);

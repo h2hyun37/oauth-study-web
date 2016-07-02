@@ -2,9 +2,9 @@ package com.h2hyun37.biz.java.threadTest;
 
 public class Consumer2 implements Runnable {
 
-	ResourceQueue2<Integer> queue;
+    ResourceQueue2<Character> queue;
 
-	public Consumer2(ResourceQueue2<Integer> queue) {
+    public Consumer2(ResourceQueue2<Character> queue) {
 		this.queue = queue;
 	}
 
@@ -20,9 +20,10 @@ public class Consumer2 implements Runnable {
 			// e.printStackTrace();
 			// }
 
-			System.out.println("[" + Thread.currentThread().getName() + "] ready to get from queue");
+	    // System.out.println("[" + Thread.currentThread().getName() + "]
+	    // ready to get from queue");
 
-			Integer data;
+	    Character data;
 			try {
 				data = queue.get();
 				System.out.println("[" + Thread.currentThread().getName() + "] pop : " + data);

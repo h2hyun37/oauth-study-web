@@ -10,7 +10,7 @@ public class ResourceQueue1<T> {
 
 	public void put(T element) {
 		synchronized (lockObj) {
-			System.out.println("[" + Thread.currentThread().getName() + "] : put()");
+	    System.out.println("[" + Thread.currentThread().getName() + "] put() : " + element);
 			list.addLast(element);
 			try {
 				Thread.sleep(100);
@@ -25,7 +25,7 @@ public class ResourceQueue1<T> {
 
 		synchronized (lockObj) {
 
-			System.out.println("[" + Thread.currentThread().getName() + "] : get()");
+	    System.out.println("[" + Thread.currentThread().getName() + "] get()");
 
 			T t = null;
 			if (!list.isEmpty()) {
