@@ -1,14 +1,17 @@
 package com.h2hyun37.biz.java.threadTest;
 
-public class ProducerConsumerManager2 {
+public class ProducerConsumerManager {
 
 	public static void main(String[] args) {
 
-	ResourceQueue2<Character> queue = new ResourceQueue2<>();
+		ResourceQueue<Character> queue;
 
-		Producer2 producer = new Producer2(queue);
-		Consumer2 consumer1 = new Consumer2(queue);
-		Consumer2 consumer2 = new Consumer2(queue);
+		// queue = new ResourceQueueByInterrupted<>();
+		queue = new ResourceQueueByPolling<>();
+
+		Producer producer = new Producer(queue);
+		Consumer consumer1 = new Consumer(queue);
+		Consumer consumer2 = new Consumer(queue);
 
 		Thread producerThread = new Thread(producer, "producer");
 		Thread consumerThread1 = new Thread(consumer1, "consumer1");
@@ -19,7 +22,6 @@ public class ProducerConsumerManager2 {
 		try {
 			Thread.sleep(2500);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
