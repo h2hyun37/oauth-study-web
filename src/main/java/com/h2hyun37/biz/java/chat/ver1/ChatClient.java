@@ -1,4 +1,4 @@
-package com.h2hyun37.biz.java.chat;
+package com.h2hyun37.biz.java.chat.ver1;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;

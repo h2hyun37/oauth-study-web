@@ -1,4 +1,4 @@
-package com.h2hyun37.biz.java.chatGui;
+package com.h2hyun37.biz.java.chat.gui;
 
 //////////////////P2PServer.java //////////////////////////
 import java.net.*;
