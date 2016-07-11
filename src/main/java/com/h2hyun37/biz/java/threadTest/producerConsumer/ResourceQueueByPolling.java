@@ -1,4 +1,4 @@
-package com.h2hyun37.biz.java.threadTest;
+package com.h2hyun37.biz.java.threadTest.producerConsumer;
 
 import java.util.LinkedList;
 
